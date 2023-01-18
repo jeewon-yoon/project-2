@@ -1,0 +1,25 @@
+cond	nperson	nitem	b0	b1	Item effect	approach	test	rate
+cond1	30	10	0	0	0.2	max	Wald	0.026
+cond4	30	10	1	0	0.2	max	Wald	0.012
+cond7	30	10	2	0	0.2	max	Wald	0.056
+cond10	50	20	0	0	0.2	max	Wald	0.021
+cond13	50	20	1	0	0.2	max	Wald	0.019
+cond16	50	20	2	0	0.2	max	Wald	0.026
+cond1	30	10	0	0	0.2	comp	Wald	0.033
+cond4	30	10	1	0	0.2	comp	Wald	0.013
+cond7	30	10	2	0	0.2	comp	Wald	0.042
+cond10	50	20	0	0	0.2	comp	Wald	0.026
+cond13	50	20	1	0	0.2	comp	Wald	0.015
+cond16	50	20	2	0	0.2	comp	Wald	0.019
+cond1	30	10	0	0	0.2	max	LRT	0.047
+cond4	30	10	1	0	0.2	max	LRT	0.042
+cond7	30	10	2	0	0.2	max	LRT	0.042
+cond10	50	20	0	0	0.2	max	LRT	0.047
+cond13	50	20	1	0	0.2	max	LRT	0.051
+cond16	50	20	2	0	0.2	max	LRT	0.062
+cond1	30	10	0	0	0.2	comp	LRT	0.065
+cond4	30	10	1	0	0.2	comp	LRT	0.058
+cond7	30	10	2	0	0.2	comp	LRT	0.059
+cond10	50	20	0	0	0.2	comp	LRT	0.057
+cond13	50	20	1	0	0.2	comp	LRT	0.07
+cond16	50	20	2	0	0.2	comp	LRT	0.081
