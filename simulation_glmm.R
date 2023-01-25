@@ -10,7 +10,7 @@ nrep= 1000
 
 ## conditions (adapted from Matuschek et al.(2017))
 # number of persons: 30, 50
-# number o? items per level: 10, 20
+# number of items per level: 10, 20
 # fixed effect (b0): 2000
 # fixed effect (b1): 0, 25
 # person random effect: 
@@ -23,7 +23,7 @@ nrep= 1000
 
 
 ## set parameters
-nperson=30? nitem=10;
+nperson=30 nitem=10;
 b0=2000; b1=25; 
 tau0=100; tau1=20; r=0.6;
 omega=20;
@@ -39,7 +39,7 @@ S = matrix(c(tau0^2, r*tau0*tau1,
 j=rep(c(1:nperson),each=2*nitem)
 i=rep(c(1:nitem),2*nperson)
 
-# fixed ?x0=1
+# fixed x0=1
 x1=rep(c(rep(0, nitem),rep(1,nitem)),nperson)
 
 
@@ -55,7 +55,7 @@ for (n in 1:nrep)
   
   # generate random effects
   s=mvrnorm(nperson, mu=c(0,0), Sigma=S)
-  w1=rnorm(nitem, ?ean=0, sd=omega)
+  w1=rnorm(nitem, mean=0, sd=omega)
   e=rnorm(nperson*nitem*2, mean=0, sd=sigma)
   
   # person random
@@ -69,7 +69,7 @@ for (n in 1:nrep)
   y = (b0*x0 + b1*x1)+ss+w+e
   
   ## data frame
-  dat<-?data.frame(j, i, x0, x1, ss, w,e,y)
+  dat<-data.frame(j, i, x0, x1, ss, w,e,y)
   
   ###### estimation
   m0=lmer(y ~ 1 + (1+x1|j)+(1|i), data=dat, REML=F)
@@ -79,7 +79,7 @@ for (n in 1:nrep)
   ## several things to save
   # b1
   fixed1<- summary(m1)$coefficients[c(2,4)]
-  fi?ed<- rbind(fixed,fixed1) 
+  fixed<- rbind(fixed,fixed1) 
   z_value<- summary(m1)$coefficients[c(2)]/summary(m1)$coefficients[c(4)]
   p_value<- pnorm(z_value, mean=0, sd=1, lower.tail = FALSE, log.p = FALSE)
   if (p_value<0.05) {
@@ -87,7 +87,7 @@ for (n in 1:nrep)
   } else {
     sig1<- 0
   }
-  sig<- rbind(sig? sig1)
+  sig<- rbind(sig, sig1)
   
   # log-likelihood
   ll0<- summary(m0)$logLik
@@ -102,7 +102,7 @@ for (n in 1:nrep)
 # fixed effect
 colnames(fixed) <- c("m1est","m1se")
 write.table(fixed, file="fixed.txt",
- ?          sep="\t", row.names = F, col.names = T)
+            sep="\t", row.names = F, col.names = T)
 
 # significance of each repetition
 colnames(sig) <- sig
