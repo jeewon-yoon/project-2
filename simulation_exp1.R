@@ -59,7 +59,7 @@ fixed<- numeric(0)
 
 #### FOR LOOP
 
-for (n in 1:nre?) {
+for (n in 1:nrep) {
   
 # generate random effects
 
@@ -73,7 +73,7 @@ ss=rep(s[,1],each=2*nitem)*x0+
   rep(s[,2],each=2*nitem)*x1
 
 # item random 
-w= rep(w1, 2*?person)
+w= rep(w1, 2*person)
 
 # y
 y= (b0*x0+b1*x1)+ ss+ w+ e
@@ -83,7 +83,7 @@ dat<- data.frame(j, i, x0,x1, ss,w,e,y)
 
 ###### estimation
 m1=lmer(y~1+x1+(1+x1|j)+(1|i), data=dat, REML=F) # maximal model(i.e., random slope) 
-m2=lmer(y~1+x1+(1|j)+(1|i), data=dat, REML=F) # random i?tercept-only
+m2=lmer(y~1+x1+(1|j)+(1|i), data=dat, REML=F) # random intercept-only
 m1.null=lmer(y~1+(1+x1|j)+(1|i), data=dat, REML=F)
 m2.null=lmer(y~1+(1|j)+(1|i), data=dat, REML=F) 
 
@@ -93,7 +93,7 @@ m2.null=lmer(y~1+(1|j)+(1|i), data=dat, REML=F)
 # b1
 fixed1<- summary(m1)$coefficients[c(2,4)]
 fixed2<- summary(m2)$coefficients[c(2,4)]
-fixed<- rbind(fixed, c(fi?ed1,fixed2)) 
+fixed<- rbind(fixed, c(fixed1,fixed2)) 
 
 # log-likelihood
 ll1<- summary(m1)$logLik
@@ -106,7 +106,7 @@ ll<- rbind(ll,ll_n)
 } ## END of FOR LOOP
 
 ## save files 
-# fixed ef?ect
+# fixed effect
 colnames(fixed) <- c("m1est","m1se","m2est","m2se")
 write.table(fixed, file="fixed.txt",
             sep="\t",row.names = F,col.names = T)
