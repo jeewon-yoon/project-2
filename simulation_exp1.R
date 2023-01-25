@@ -13,7 +13,7 @@ nrep= 1000
 ## conditions (adapted from Matuschek et al.(2017))
 
 # number of persons: 30, 50
-# number ?f items per level: 10, 20
+# number of items per level: 10, 20
 # fixed effect (b0): 2000
 # fixed effect (b1): 0, 25
 # person random effect: 
@@ -27,7 +27,7 @@ nrep= 1000
 
 
 
-## set par?meters
+## set parameters
 
 nperson=50; nitem=20; # Change the number of person & item
 b0=2000; b1=25; # Change b1 into 25
@@ -37,7 +37,7 @@ omega= 100; # Change omega 20 or 60 or 100
 sigma=300 
 S= matrix(c(tau0^2, r*tau0*tau1,
             r*tau0*tau1,tau1^2),
-      ?     nrow=2)
+            nrow=2)
 
 
 ## design matrix  
@@ -114,4 +114,4 @@ write.table(fixed, file="fixed.txt",
 # log-likelihood
 colnames(ll) <- c("ll.m1","ll.m2","ll.m1.null", "ll.m2.null")
 write.table(ll, file="ll.txt",
-  ?         sep="\t",row.names = F,col.names = T)
+            sep="\t",row.names = F,col.names = T)
