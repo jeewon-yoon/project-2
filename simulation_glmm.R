@@ -111,7 +111,7 @@ write.table(sig, file="sig.txt", sep = "\t", row.names = F, col.names = T)
 # proportion of significance
 sig_level<-sum(sig[1:1000])/nrep*100
 
-# log-l?kelihood
+# log-likelihood
 colnames(ll) <- c("m0ll","m1ll")
 write.table(ll, file="ll.txt",
             sep="\t",row.names = F, col.names = T)
