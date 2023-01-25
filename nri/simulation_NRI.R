@@ -104,7 +104,7 @@ for (n in 1:nrep) {
 
 ## save files 
 # fixed effect
-colnames(fixed) <- c("m1est","m1se",?m2est","m2se")
+colnames(fixed) <- c("m1est","m1se","m2est","m2se")
 write.table(fixed,file="fixed_nri.txt",
             sep="\t", row.names = F, col.names = T)
 
