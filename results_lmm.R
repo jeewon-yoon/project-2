@@ -13,7 +13,7 @@ dat2<- read.table("ll.txt", header=T)
 ####  1. Maximal model(M1)
 
 ## 1.1. bias
-b1=25 ## f?xed effect magnitude(0,25). Change the fixed effect magnitude when b1 is 25.
+b1=25 ## fixed effect magnitude(0,25). Change the fixed effect magnitude when b1 is 25.
 bias.max= mean(dat$m1est)-b1
 
 ## 1.2. RMSE
@@ -21,9 +21,9 @@ rmse.max= sd(dat$m1est-b1)
 
 ## 1.3. Type 1 error rate or Power
 ### 1.3.1. Wald test
-t.max= dat$m1est/dat$m1se  # t-value 1000개
-wald.sig?max= ifelse(t.max>qnorm(0.975),1,0) # significant하면 1 아니면 0
-wald.rate.max= mean(wald.sig.max) # 1과 0의 Proportion
+t.max= dat$m1est/dat$m1se  # t-value 1000째쨀
+wald.sig.max= ifelse(t.max>qnorm(0.975),1,0) 
+wald.rate.max= mean(wald.sig.max) 
 
 ### 1.3.2. LRT
 deviance.max<- -2*(dat2$ll.m1.null-dat2$ll.m1)
@@ -50,7 +50,7 @@ rmse.MC= sd(b1est.final-b1)
 ### 2.3.1. Wald test
 t.MC=b1est.final/b1se.final
 wald.sig.MC= ifelse(t.MC>qnorm(.975),1,0)
-wald.rate.M? = mean(wald.sig.MC)
+wald.rate.MC = mean(wald.sig.MC)
 
 ### 2.3.2. LRT
 deviance.MC<- ifelse(deviance>qchisq(.95,1),
