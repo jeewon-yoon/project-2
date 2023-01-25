@@ -38,7 +38,7 @@ S= matrix(c(tau0^2, r*tau0*tau1,
 ## design matrix  
 
 #id
-j=rep(c(1:nperson), ea?h=2*nitem)
+j=rep(c(1:nperson), each=2*nitem)
 i=rep(c(1:(2*nitem)), nperson)
 k1 <- rep(c(rep(1,nitem), rep(0,nitem)), nperson)
 k2 <- rep(c(rep(0,nitem), rep(1,nitem)), nperson)
@@ -51,7 +51,7 @@ x1= rep(c(rep(0, nitem), rep(1,nitem)), nperson)
 ###### spaces to save
 
 ll<- numeric(0)
-fixed<- n?meric(0)
+fixed<- numeric(0)
 
 
 #### FOR LOOP
@@ -89,7 +89,7 @@ for (n in 1:nrep) {
   # b1
   fixed1<- summary(m1)$coefficients[c(2,4)]
   fixed2<- summary(m2)$coefficients[c(2,4)]
-  fixed_n<-c(fi?ed1,fixed2)
+  fixed_n<-c(fixed1,fixed2)
   fixed<- rbind(fixed,fixed_n) 
   
   # log-likelihood
