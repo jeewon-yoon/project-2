@@ -12,7 +12,7 @@ nrep= 10
 ## varying conditions (adapted from Matuschek et al.(2017))
 
 # number of persons: 30, 50
-# ?umber of items per level: 10, 20
+# number of items per level: 10, 20
 # fixed effect (b0): 2000
 # fixed effect (b1): 0, 25, 50
 # person random effect: 
@@ -21,7 +21,7 @@ nrep= 10
 # corr(tau0,tau1): 0.6
 # item random effect(sd): 
 #[omega1,omega2]=[20,20], [20,60], [20,100] 
-# sigma(=sd(e))? 300
+# sigma(=sd(e)): 300
 
 
 ## set parameters
@@ -81,7 +81,7 @@ for (n in 1:nrep) {
   
   
   ###### estimation
-  m?=lmer(y~1+x1+(1+x1|j)+(1|i), data=dat, REML=F)
+  m1=lmer(y~1+x1+(1+x1|j)+(1|i), data=dat, REML=F)
   m2=lmer(y~1+x1+(1+x1|j)+(-1+k1|i)+(-1+k2|i), data=dat, REML=F)
   
   ## several things to save
